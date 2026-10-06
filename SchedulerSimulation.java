@@ -1,3 +1,4 @@
+package com.mycompany.schedulersimulation;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Map;
@@ -318,7 +319,7 @@ public class SchedulerSimulation {
                                p.getTurnaroundTime() + "ms"));
             System.out.println("---------------------------------------------------------------\n");
     }
-    
+    }
     // Method to add a process to the queue and map, while printing a "ready" message
     public static void addProcessToQueue(Process process, Queue<Thread> processQueue, 
                                         Map<Thread, Process> processMap) {
