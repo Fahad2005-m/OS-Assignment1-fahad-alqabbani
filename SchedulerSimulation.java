@@ -155,14 +155,18 @@ class Process implements Runnable {
 }
 
     // Check if the process has finished (i.e., no remaining time)
-    public boolean isFinished() {
-        return remainingTime <= 0;
-        public long getTurnaroundTime() {
-        return completionTime - creationTime;
-     public long getWaitingTime() { return Math.max(0, getTurnaroundTime() - burstTime);
-    }
+public boolean isFinished() {
+    return remainingTime <= 0;
 }
 
+public long getTurnaroundTime() {
+    return completionTime - creationTime;
+}
+
+public long getWaitingTime() {
+    return Math.max(0, getTurnaroundTime() - burstTime);
+}
+}
 public class SchedulerSimulation {
     private static int contextSwitches = 0;
     public static void main(String[] args) {
@@ -303,7 +307,7 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
-    }System.out.println(Colors.BOLD + Colors.CYAN + "\n=== Process Execution Summary ===" + Colors.RESET);
+    System.out.println(Colors.BOLD + Colors.CYAN + "\n=== Process Execution Summary ===" + Colors.RESET);
         System.out.println(String.format("%-10s | %-12s | %-15s | %-15s", "Process", "Burst Time", "Waiting Time", "Turnaround Time"));
         System.out.println("---------------------------------------------------------------");
         for (Process p : allProcesses) {
