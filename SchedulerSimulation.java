@@ -275,7 +275,10 @@ public class SchedulerSimulation {
                 }
             }
         }
-        
+        System.out.println(Colors.YELLOW + "Total context switches: "
+        + Colors.BRIGHT_YELLOW + contextSwitches
+        + Colors.RESET + "\n");
+
         // End of the scheduler simulation
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╔════════════════════════════════════════════════════════════════════════════════╗" + 
@@ -307,9 +310,7 @@ public class SchedulerSimulation {
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                          " │ Priority: " + Colors.BRIGHT_YELLOW + process.getPriority() +
                           Colors.RESET);
-  System.out.println(Colors.YELLOW + "Total context switches: "
-        + Colors.BRIGHT_YELLOW + contextSwitches
-        + Colors.RESET + "\n");
+ 
 
     }
 }
