@@ -307,6 +307,9 @@ public class SchedulerSimulation {
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                          " │ Priority: " + Colors.BRIGHT_YELLOW + process.getPriority() +
                           Colors.RESET);
-        system.ouy.println(colors.yellow+"totalcontext switches:"+colors.BRIGHT_YELLOW+contextSwitches+Colors.RESET+"\n");
+  System.out.println(Colors.YELLOW + "Total context switches: "
+        + Colors.BRIGHT_YELLOW + contextSwitches
+        + Colors.RESET + "\n");
+
     }
 }
