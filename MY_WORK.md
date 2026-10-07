@@ -234,12 +234,11 @@ Making the information clear and easy to read.
 > 💡 **TIP:** Draft your answer in a few bullet points first, then turn them into sentences.
 
 ## Question 1: What did you learn about multithreading?
-
-> 💡 **TIP:** Talk about thread creation (`Runnable`, `Thread.start()`), waiting with `Thread.join()`, simulating work with `Thread.sleep()`, and what surprised you.
+> 💡 **TIP:**  `
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned how to create and start threads using new Thread(process) and start(). I learned that join() makes the main thread wait for another thread. Thread.sleep() can simulate process work. I also learned how threads take turns using the CPU. The ready queue and time quantum helped me understand multithreading better.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -247,7 +246,7 @@ Making the information clear and easy to read.
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part was understanding how Round-Robin re-queues a process. At first, I did not understand why the same process returned to the queue. I followed processQueue.poll() and addProcessToQueue() to understand it. I also had to understand the difference between a Thread and the simulated Process. Running the program helped me understand the scheduler better.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -255,7 +254,7 @@ Making the information clear and easy to read.
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I overcame the challenges by reading the code step by step. I focused on start(), join(), and addProcessToQueue(). I also checked the program output after making changes. I tested the program several times to find mistakes. This helped me understand how the scheduler works.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -263,19 +262,22 @@ Making the information clear and easy to read.
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is useful in web browsers, games, and music applications. A browser can use threads for loading pages and handling user input. A game can use threads for graphics, sound, and game logic. This is similar to my scheduler because different tasks get CPU time. Multithreading helps applications stay responsive.]
 
 ### Optional: What would you like to learn more about?
 
-[Any topics related to threading or operating systems that you're curious about?]
+[I would like to learn more about synchronization, locks, and thread communication]
 
 ### Optional: How confident do you feel about multithreading concepts now?
 
-[Beginner / Intermediate / Confident. What do you understand well? What needs more practice?]
+[Intermediate. I understand start(), join(), sleep(), ready queues, and time quantum better now]
+
+
 
 ### Optional: Feedback on the assignment
 
-[Any comments? Was it helpful? Too easy or hard? Suggestions?]
+[The assignment was helpful
+a little challenging]
 
 ---
 
@@ -295,7 +297,7 @@ Making the information clear and easy to read.
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is an independent program, while a thread is a smaller unit of execution. Threads usually use less resources and can share memory. In my project, Process is a simulated process, while Java Thread runs it. In addProcessToQueue(), new Thread(process) creates the thread]
 
 ## Question 2: Ready Queue Behavior
 
@@ -307,15 +309,19 @@ Making the information clear and easy to read.
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[When a process does not finish within its time quantum, it is added back to the ready queue. In my output, P1 was re-queued 1 time before it finished. P1 had a burst time of 5339ms and a time quantum of 3000ms, so it had 2339ms remaining after its first quantum. Re-queuing is important because it allows other processes to use the CPU, making Round-Robin scheduling fair]
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+[P1 completed quantum 3000ms → Overall progress: 56%
+Remaining time: 2339ms
+P1 yields CPU for context switch
+
+P1 added to ready queue → Burst time: 5339ms → Priority: 2]
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[P1 ran for 3000ms but did not finish because it had 2339ms remaining. The scheduler added P1 back to the ready queue allowing other processes to run. P1 later ran again and finished its remaining time]
 
 ## Question 3: Thread Lifecycle
 
@@ -325,15 +331,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: [P1 is in the New state when new Thread(process) creates its thread in addProcessToQueue]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [P1 becomes Runnable when the scheduler calls currentThread.start]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [P1 is Running when its run method is executing during its time quantum?]
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: [The main thread waits when currentThread.join is called, while P1 can sleep temporarily using Thread.sleep]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [P1 becomes Terminated when its run method finishes and the thread completes]
 
 ## Question 4: Real-World Applications
 
@@ -346,29 +352,32 @@ Example from my output:
 ### Example 1 (operating-system level): [Name of scenario]
 
 **Description**:
-[Describe the real-world scenario.]
+[Linux can use Round-Robin scheduling for tasks that have the same priority under its scheduling system. Each task gets CPU time before the scheduler switches to another task]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[Round-Robin provides fairness because each task gets a chance to use the CPU. The time quantum controls how long a task runs, and the context switch moves the CPU to another task.]
 
 ### Example 2: [Name of application/scenario]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[A multiplayer game can use threads for tasks such as game logic, networking, and player input. Each task needs CPU time without blocking the other tasks.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[Round-Robin gives each task a fair amount of CPU time and keeps the game responsive. The tasks are similar to processes, the time quantum gives them CPU time, and switching between tasks is similar to a context switch.]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.How threads move through different lifecycle states.
+
+2.How Round-Robin uses a time quantum and ready queue.
+
+3.How context switching helps share CPU time fairly.
 
 **Concepts I need to study more:**
-1.
-2.
+1.Thread synchronization and locks.
+
+2.Race conditions and thread communication.
 
 ---
 
