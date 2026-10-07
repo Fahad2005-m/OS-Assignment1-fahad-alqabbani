@@ -131,63 +131,65 @@
 
 ### Entry 1 - [Date and Time]
 **What I did**:
-
+Added context switch tracking.
 **Details**:
 
+Added a counter to calculate the total number of context switches.
 **Challenges**:
-
+Making sure switches were counted correctly.
 **Solution**:
-
+Used contextSwitches++ when switching between processes.
 **Time spent**:
 
 ---
 
 ### Entry 2 - [Date and Time]
 **What I did**:
-
+Added process priority
 **Details**:
-
+Added a priority attribute to the Process class and displayed it in the output
 **Challenges**:
-
+Updating the process information without affecting the scheduler
 **Solution**:
-
+Added the priority field and included it in the ready queue message.
 **Time spent**:
 
 ---
 
 ### Entry 3 - [Date and Time]
 **What I did**:
-
+Fixed the context switch output.
 **Details**:
-
+Corrected a typo in the message that displays the number of context switches.
 **Challenges**:
-
+The output was not displayed correctly.
 **Solution**:
-
+Fixed the print statement.
 **Time spent**:
 
 ---
 
 ### Entry 4 - [Date and Time]
 **What I did**:
-
+Added execution summary and waiting time details.
 **Details**:
-
+Added a summary showing burst time, waiting time, and turnaround time for each process.
 **Challenges**:
-
+Displaying the results clearly.
 **Solution**:
-
+Used a formatted table to show the process statistics.
 **Time spent**:
 
 ---
 
 ### Entry 5 - [Date and Time]
 **What I did**:
-
+Improved the process display in the Ready Queue
 **Details**:
+Updated the messages shown when adding a process to the queue and included information such as Burst Time and Priority.
 
 **Challenges**:
-
+Making the information clear and easy to read.
 **Solution**:
 
 **Time spent**:
